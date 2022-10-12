@@ -14,8 +14,8 @@ const Main = () => {
   const state = useSelector((state) => state.coreReducer);
   const load = useSelector((state) => state.load.load);
 
-  const handleChange = () => {
-    setOffset((offset) => offset + 9);
+  const handleChange = (e) => {
+    setOffset((e.target.innerText - 1) * 9);
   };
 
   useEffect(() => {
@@ -38,12 +38,12 @@ const Main = () => {
         {load
           ? 'Загрузка...'
           : state?.data.map((item) => (
-              <Link to={'/char/' + item?.char_id} state={{ item: item }}>
+              <Link to={'/char/' + item?.char_idдмююю} state={{ item: item }}>
                 <Card item={item} />{' '}
               </Link>
             ))}
 
-        <Pagination count={10} color="primary" onChange={handleChange} />
+        <Pagination count={10} color="primary" onChange={handleChange}/>
       </Box>
     </>
   );
